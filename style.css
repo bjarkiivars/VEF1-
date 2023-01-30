@@ -37,10 +37,19 @@
 
 }
 
-.keyboard > div {
+.keyboard > div { /* Child element */
     height:100%;
     width:20%;
     border:0.1rem solid rgba(0,0,0,255);
 }
 
+div + span { /* Sibling element */
+    /*position: absolute;*/
+    /*right:1rem;*/
+    height:50%;
+    border:0.1rem solid rgba(0,0,0,255);
+    background-color: rgba(0,0,0,255);
+    color:white;
+
+}
 
