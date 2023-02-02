@@ -5,85 +5,110 @@
         <link rel="stylesheet" type="text/css" href="style.css"/> <!-- My CSS-->
         <title>Assignment 1</title>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="Assignment1" content="An interactive keyboard"/>
         <meta name="author" content="Bjarki Þór Ívarsson"/>
         <meta name="keywords" content="HTML, Keyboard, Assignment1, T-213-VEFF"/>
     </head>
     <body>
-        <div class="box container">
-            <div class="item header">
-                <div>Something cool</div>
-                <div>Even cooler!</div>
-                <div>Think that's cool?</div> 
-            </div>
-            <div class="keyboard">
-                <div>
-                    <p>C4</p>
-                    <p>&#40;a&#41;</p>
+
+        <img id="stopImage" src="public/oops.jpg" alt="An image advising the user that the website needs to be greater than 599 px to be displayed"/>
+        <p id="stopMessage">This website requires at least 600px screen width.</p>
+
+        <div id="displayPiano">
+            <div class="box container">
+                <div class="item header">
+
+                    <!-- Dropdown menu -->
+                    <p>Tune:</p>
+                    <select name="tunes" id="tunes"> 
+                        <option>F&uuml;r Elise</option>
+                        <option>The Godfather</option>
+                        <option>Seven Nation Army</option> 
+                    </select>
+                    <button id="play">
+                        <img src="public/play.png" alt="Image of a play button"/>
+                    </button>
+                    <p>Record:</p>
+                    <button id="record">
+                        <img src="public/record.png" alt="Image of a record button (To start recording)"/>
+                    </button>
+                    <button id="pause" disabled>
+                        <img src="public/stop.png" alt="Image of a stop button (To stop recording)"/>
+                    </button>
                 </div>
-                <span class="node1">
-                    <p>C</p>
-                    <p>&#40;w&#41;</p>
-                </span>
-                <div>
-                    <p>C4</p>
-                    <p>&#40;a&#41;</p>
-                </div>
-                <span class="node2">
-                    <p>D&#35;4</p>
-                    <p>&#40;e&#41;</p>
-                </span>
-                <div>
-                    <p>C4</p>
-                    <p>&#40;a&#41;</p>
-                </div>
-                <div>
-                    <p>C4</p>
-                    <p>&#40;a&#41;</p>
-                </div>
-                <span class="node3">
-                    <p>F&#35;4</p>
-                    <p>&#40;t&#41;</p>
-                </span>
-                <div>
-                    <p>C4</p>
-                    <p>&#40;a&#41;</p>
-                </div>
-                <span class="node4">
-                    <p>G&#35;4</p>
-                    <p>&#40;y&#41;</p>
-                </span>
-                <div>
-                    <p>C4</p>
-                    <p>&#40;a&#41;</p>
-                </div>
-                <span class="node5">
-                    <p>Bd4</p>
-                    <p>&#40;u&#41;</p>
-                </span>
-                <div>
-                    <p>C4</p>
-                    <p>&#40;a&#41;</p>
-                </div>
-                <div>
-                    <p>C4</p>
-                    <p>&#40;a&#41;</p>
-                </div>
-                <span class="node6">
-                    <p>C&#35;5</p>
-                    <p>&#40;o&#41;</p>
-                </span>
-                <div>
-                    <p>C4</p>
-                    <p>&#40;a&#41;</p>
-                </div>
-                <span class="node7">
-                    <p>D&#35;5</p>
-                    <p>&#40;p&#41;</p>
-                </span>
-                <div>
-                    <p>C4</p>
-                    <p>&#40;a&#41;</p>
+
+                <!-- Keyboard and it's keys -->
+                <!-- Nodes class denotes the black keys -->
+                <div class="keyboard">
+                    <button class="key">
+                        <span>C4</span>
+                        <span>&#40;a&#41;</span>
+                    </button>
+                    <button class="node node1">
+                        <span>C</span>
+                        <span>&#40;w&#41;</span>
+                    </button>
+                    <button class="key">
+                        <span>D4</span>
+                        <span>&#40;s&#41;</span>
+                    </button>
+                    <button class="node node2">
+                        <span>D&#35;4</span>
+                        <span>&#40;e&#41;</span>
+                    </button>
+                    <button class="key">
+                        <span>E4</span>
+                        <span>&#40;d&#41;</span>
+                    </button>
+                    <button class="key">
+                        <span>F4</span>
+                        <span>&#40;f&#41;</span>
+                    </button>
+                    <button class="node node3">
+                        <span>F&#35;4</span>
+                        <span>&#40;t&#41;</span>
+                    </button>
+                    <button class="key">
+                        <span>G4</span>
+                        <span>&#40;g&#41;</span>
+                    </button>
+                    <button class="node node4">
+                        <span>G&#35;4</span>
+                        <span>&#40;y&#41;</span>
+                    </button>
+                    <button class="key">
+                        <span>A4</span>
+                        <span>&#40;h&#41;</span>
+                    </button>
+                    <button class="node node5">
+                        <span>Bd4</span>
+                        <span>&#40;u&#41;</span>
+                    </button>
+                    <button class="key">
+                        <span>B4</span>
+                        <span>&#40;j&#41;</span>
+                    </button>
+                    <button class="key">
+                        <span>C5</span>
+                        <span>&#40;k&#41;</span>
+                    </button>
+                    <button class="node node6">
+                        <span>C&#35;5</span>
+                        <span>&#40;o&#41;</span>
+                    </button>
+                    <button class="key">
+                        <span>D5</span>
+                        <span>&#40;I&#41;</span>
+                    </button>
+                    <button class="node node7">
+                        <span>D&#35;5</span>
+                        <span>&#40;p&#41;</span>
+                    </button>
+                    <button class="key">
+                        <span>E5</span>
+                        <span>&#40;&semi;&#41;</span>
+                    </button>
                 </div>
             </div>
         </div>

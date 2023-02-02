@@ -1,25 +1,42 @@
 body {
-    font-size:70%;
+    font-size:77%; /* General fontsize */
+    font-family: Arial;
 }
+
+#stopImage {
+    display:none;
+}
+
+#stopMessage {
+    display:none;
+}
+
+/*
+*
+*   Box configurations (Container/Flexbox)
+*
+*/
 
 .box {
     margin:auto;
-    width:61rem;
-    height: 14.5rem;
+    width:60rem;
+    height: 17rem;
     border: 1rem;
     border-radius: 0.5rem;
     background-color: rgba(48,28,130,255);
-}
-
-.item { /*for testing purposes */
-    height: 2.5rem;
-    text-align: center;
 }
 
 .container {
     display: flex;
     flex-direction: column;
 }
+
+
+/*
+*
+*   Header configurations (Box above the Keyboard)
+*
+*/
 
 .header {
     display: flex;
@@ -28,106 +45,181 @@ body {
     margin-top: 1rem;
     margin-right: 6rem;
     margin-left: 6rem;
+    position:relative;
+    height:2.8rem;
 }
 
+.header > button {
+    position: absolute; /* Relative to it's parent the header container*/
+    width:4%;
+    height:70%;
+    top:13%;
+}
+
+.header > select {
+    position: absolute;
+    left:5%;
+    top:29%;
+    width:18%;    
+}
+
+.header > button > img {
+    width:100%;
+}
+
+#play {
+    left:23.7%;
+}
+
+#record {
+    left:90.7%;
+}
+
+#pause {
+    left:95%;
+}
+
+.header > p {
+    position: absolute;
+    left: 0.7%;
+    top:8%;
+}
+
+.header > p:nth-of-type(2) { 
+    left: 85%;
+}
+
+/* 
+*
+*   Keyboard configurations
+*
+*/
 .keyboard{
     display: flex;
     flex-direction: row;
+    align-items:stretch;
     background-color: rgba(255,255,255,255);
     margin-top: 1rem;
     margin-right: 10%;
     margin-left:10%;
-    height: 60%;
-    line-height:2%; 
+    height:44%;
     position: relative;
 }
 
-.keyboard > div { /* Child element */
-    height:100%;
+.keyboard > .key { /* Child element */
+    height:150%;
     width:20%;
-    border:0.1rem solid rgba(0,0,0,255);
+    background-color: rgba(255,255,255,255);
 }
 
-div + span { /* Sibling element */
+button + .node { /* Sibling element */
     position: absolute;
-    height: 5rem; /* make sure height doesn't change */
-    border: 0.1rem solid rgba(0,0,0,255);
+    height: 7rem; /* make sure height doesn't change relative to website size*/
     background-color: rgba(0,0,0,255);
     color: white;
-    width: 2.9%;
+    width: 4.2%;
     text-align: center;
 
 }
 
-.keyboard > div > p {
+.keyboard > button > span {
     text-align: center;
     margin-left:5%;
+    display:block; /*Since P is banned within button elemts, I'll make my span behave like a block element opposed to inline element*/
+    font-family: Arial;
+    font-size:0.65rem;
 }
 
-.keyboard > div > p:first-child {
-    margin-top:100%;
+.keyboard > button > span:first-child {
+    margin-top:20%;
 }
 
-.keyboard > span > p:first-child {
-    margin-top:150%;
+.keyboard > .node > span:first-child {
+    margin-top:50%;
+}
+
+.keyboard > button:active {
+    background-color:rgba(128,128,128,255);
 }
 
 /* For screensize > 1000px*/
 /*
 @media only screen and (min-width: 1000px) {
-    .node1 {
-        left:8.5%;
-    }
-    
-    .node2 {
-        left:18.5%;
-    }
-
-    .node3 {
-        left:38.5%;
-    }
-
-    .node4 {
-        left:48.5%;
-    }
-
-    .node5 {
-        left:58.5%;
-    }
-
-    .node6 {
-        left:78.5%;
-    }
-
-    .node7 {
-        left:88.5%;
-    }
+ 
 }
 */
 .node1 {
-    left:8.5%;
+    left:7.9%;
 }
 
 .node2 {
-    left:18.5%;
+    left:18%;
 }
 
 .node3 {
-    left:38.5%;
+    left:38%;
 }
 
 .node4 {
-    left:48.5%;
+    left:48%;
 }
 
 .node5 {
-    left:58.5%;
+    left:58%;
 }
 
 .node6 {
-    left:78.5%;
+    left:78%;
 }
 
 .node7 {
-    left:88.5%;
+    left:88%;
+}
+
+
+/*
+*
+* For the printable version
+* 
+*/
+@media print {
+    .header {
+        visibility:hidden;
+    }
+    .header > * {
+        visibility: visible;
+    }
+
+    .keyboard, .box {
+        visibility: hidden;
+    }
+
+    .keyboard > * {
+        visibility: visible;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    /*.box > * {
+        visibility: hidden;
+    }
+    
+    .container {
+        visibility: hidden;
+    }*/
+
+    #displayPiano {
+        display:none;
+    }
+
+    #stopImage {
+        display:unset;
+        padding: 0rem 3rem 1rem;
+        width:30.5rem;
+       
+    }
+    #stopMessage {
+        display: unset;
+        padding: 1rem 9rem 1rem;
+    }
 }
