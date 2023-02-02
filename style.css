@@ -1,15 +1,19 @@
+body {
+    font-size:70%;
+}
+
 .box {
-    margin-right:20%;
-    margin-left:20%;
-    height:17rem;
-    border:1rem;
-    border-radius:0.5rem;
+    margin:auto;
+    width:61rem;
+    height: 14.5rem;
+    border: 1rem;
+    border-radius: 0.5rem;
     background-color: rgba(48,28,130,255);
 }
 
 .item { /*for testing purposes */
-    height:3rem;
-    text-align:center;
+    height: 2.5rem;
+    text-align: center;
 }
 
 .container {
@@ -19,11 +23,11 @@
 
 .header {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     background-color: rgba(0,128,0,255);
     margin-top: 1rem;
-    margin-right: 10%;
-    margin-left: 10%;
+    margin-right: 6rem;
+    margin-left: 6rem;
 }
 
 .keyboard{
@@ -32,8 +36,10 @@
     background-color: rgba(255,255,255,255);
     margin-top: 1rem;
     margin-right: 10%;
-    margin-left: 10%;
-    height: 65%;
+    margin-left:10%;
+    height: 60%;
+    line-height:2%; 
+    position: relative;
 }
 
 .keyboard > div { /* Child element */
@@ -43,38 +49,85 @@
 }
 
 div + span { /* Sibling element */
-    position:absolute;
-    height:15%;
-    border:0.1rem solid rgba(0,0,0,255);
+    position: absolute;
+    height: 5rem; /* make sure height doesn't change */
+    border: 0.1rem solid rgba(0,0,0,255);
     background-color: rgba(0,0,0,255);
-    color:white;
+    color: white;
+    width: 2.9%;
+    text-align: center;
 
 }
 
+.keyboard > div > p {
+    text-align: center;
+    margin-left:5%;
+}
+
+.keyboard > div > p:first-child {
+    margin-top:100%;
+}
+
+.keyboard > span > p:first-child {
+    margin-top:150%;
+}
+
+/* For screensize > 1000px*/
+/*
+@media only screen and (min-width: 1000px) {
+    .node1 {
+        left:8.5%;
+    }
+    
+    .node2 {
+        left:18.5%;
+    }
+
+    .node3 {
+        left:38.5%;
+    }
+
+    .node4 {
+        left:48.5%;
+    }
+
+    .node5 {
+        left:58.5%;
+    }
+
+    .node6 {
+        left:78.5%;
+    }
+
+    .node7 {
+        left:88.5%;
+    }
+}
+*/
 .node1 {
-    margin-left: 3.5%;
+    left:8.5%;
 }
 
 .node2 {
-    margin-left: 8.2%;
+    left:18.5%;
 }
 
 .node3 {
-    margin-left: 17.7%;
+    left:38.5%;
 }
 
 .node4 {
-    margin-left: 22.5%;
+    left:48.5%;
 }
 
 .node5 {
-    margin-left: 27.3%;
+    left:58.5%;
 }
 
 .node6 {
-    margin-left: 36.6%;
+    left:78.5%;
 }
 
 .node7 {
-    margin-left: 41.5%;
+    left:88.5%;
 }
