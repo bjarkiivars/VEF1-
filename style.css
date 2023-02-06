@@ -1,5 +1,5 @@
 body {
-    font-size:77%; /* General fontsize */
+    font-size:0.968rem;
     font-family: Arial;
 }
 
@@ -11,24 +11,27 @@ body {
     display:none;
 }
 
+/* Remove button padding in FF */
+button::-moz-focus-inner {
+    border:0;
+    padding:0;
+}
+
 /*
 *
 *   Box configurations (Container/Flexbox)
 *
 */
 
-.box {
+.container {
+    display:flex;
+    flex-direction: column;
     margin:auto;
-    width:60rem;
+    max-width:60rem;
     height: 17rem;
     border: 1rem;
     border-radius: 0.5rem;
     background-color: rgba(48,28,130,255);
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
 }
 
 
@@ -39,54 +42,87 @@ body {
 */
 
 .header {
+    /* Main wrapper, flexbox in the header*/
     display: flex;
-    flex-direction: row;
+    align-items:flex-start;
     background-color: rgba(0,128,0,255);
     margin-top: 1rem;
-    margin-right: 6rem;
-    margin-left: 6rem;
+    margin-right: 10%;
+    margin-left: 10%;
     position:relative;
     height:2.8rem;
 }
 
-.header > button {
-    position: absolute; /* Relative to it's parent the header container*/
-    width:4%;
-    height:70%;
-    top:13%;
+/*headerItem1*/
+
+#headerItem1 {
+    /*First child of the header flexbox parent*/
+    /*also a flexbox*/
+    flex-grow:1;
+    display:flex;
+    justify-content:flex-start;
+    column-gap: 0.3rem;
 }
 
-.header > select {
-    position: absolute;
-    left:5%;
-    top:29%;
-    width:18%;    
+#headerItem1 > p {
+    /*p child of the Item1 flexbox*/
+    margin-top: 1.1rem;
+    margin-left:3%;
 }
 
-.header > button > img {
-    width:100%;
+#headerItem1 > select {
+    /*select child of the Item1 flexbox*/
+    margin-top: 0.95rem;
+    height: 1.18rem;
 }
 
-#play {
-    left:23.7%;
+#headerItem1 > button {
+    /*button child of the Item1 flexbox*/
+    margin-top: 0.6rem;
+    height: 1.7rem;
+    width: 1.7rem;
 }
 
-#record {
-    left:90.7%;
+#headerItem1 > button > img {
+    /*Ensure the image doesn't scale outside of the button size*/
+    height: 0.88rem;
+    width: 0.8rem;
+    margin-top:0.2rem;
 }
 
-#pause {
-    left:95%;
+/*headerItem2*/
+
+#headerItem2 {
+    /*Second child of the header flexbox parent*/
+    /*also a flexbox*/
+    flex-grow:2;
+    display:flex;
+    justify-content:flex-end;
+    column-gap: 0.3rem;
 }
 
-.header > p {
-    position: absolute;
-    left: 0.7%;
-    top:8%;
+#headerItem2 > p {
+    /*p child of the Item1 flexbox*/
+    margin-top: 1.1rem;
 }
 
-.header > p:nth-of-type(2) { 
-    left: 85%;
+#headerItem2 > button {
+    /*button child of the Item1 flexbox*/
+    margin-top: 0.6rem;
+    height: 1.7rem;
+    width: 1.7rem;
+}
+
+#headerItem2 > button:nth-child(3) {
+    /*Margin given to the stop button*/
+    margin-right:3%;
+}
+
+#headerItem2 > button > img {
+    /*Ensure the image doesn't scale outside of the button size*/
+    height: 0.88rem;
+    width: 0.8rem;
+    margin-top:0.2rem;
 }
 
 /* 
@@ -94,11 +130,10 @@ body {
 *   Keyboard configurations
 *
 */
+
 .keyboard{
     display: flex;
     flex-direction: row;
-    align-items:stretch;
-    background-color: rgba(255,255,255,255);
     margin-top: 1rem;
     margin-right: 10%;
     margin-left:10%;
@@ -106,20 +141,19 @@ body {
     position: relative;
 }
 
-.keyboard > .key { /* Child element */
+.keyboard > .key { 
     height:150%;
     width:20%;
     background-color: rgba(255,255,255,255);
 }
 
-button + .node { /* Sibling element */
+button + .node { 
+    /* Sibling element */
     position: absolute;
     height: 7rem; /* make sure height doesn't change relative to website size*/
     background-color: rgba(0,0,0,255);
     color: white;
-    width: 4.2%;
-    text-align: center;
-
+    width: 5.8%;
 }
 
 .keyboard > button > span {
@@ -127,11 +161,11 @@ button + .node { /* Sibling element */
     margin-left:5%;
     display:block; /*Since P is banned within button elemts, I'll make my span behave like a block element opposed to inline element*/
     font-family: Arial;
-    font-size:0.65rem;
+    font-size:0.968rem;
 }
 
 .keyboard > button > span:first-child {
-    margin-top:20%;
+    margin-top:15%;
 }
 
 .keyboard > .node > span:first-child {
@@ -142,47 +176,37 @@ button + .node { /* Sibling element */
     background-color:rgba(128,128,128,255);
 }
 
-/* For screensize > 1000px*/
-/*
-@media only screen and (min-width: 1000px) {
- 
-}
-*/
+/*To align the floating black keys*/
 .node1 {
-    left:7.9%;
+    left:7.2%;
 }
 
 .node2 {
-    left:18%;
+    left:17.2%;
 }
 
 .node3 {
-    left:38%;
+    left:37.2%;
 }
 
 .node4 {
-    left:48%;
+    left:47.2%;
 }
 
 .node5 {
-    left:58%;
+    left:57.2%;
 }
 
 .node6 {
-    left:78%;
+    left:77.2%;
 }
 
 .node7 {
-    left:88%;
+    left:87.2%;
 }
 
-
-/*
-*
-* For the printable version
-* 
-*/
 @media print {
+    /*For the printable version*/
     .header {
         visibility:hidden;
     }
@@ -190,7 +214,7 @@ button + .node { /* Sibling element */
         visibility: visible;
     }
 
-    .keyboard, .box {
+    .keyboard, .container {
         visibility: hidden;
     }
 
@@ -200,26 +224,33 @@ button + .node { /* Sibling element */
 }
 
 @media only screen and (max-width: 599px) {
-    /*.box > * {
-        visibility: hidden;
-    }
-    
-    .container {
-        visibility: hidden;
-    }*/
-
+    /*When the oops image is displayed*/
     #displayPiano {
         display:none;
     }
 
-    #stopImage {
-        display:unset;
-        padding: 0rem 3rem 1rem;
-        width:30.5rem;
-       
+    #StopContainer {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        height: 21rem;
+        max-width: 30rem;
     }
+
+    #stopImage {
+        display: unset;
+    }
+    
     #stopMessage {
         display: unset;
-        padding: 1rem 9rem 1rem;
+        margin-left: 18%;
+        font-size: 2.5vw;
+    }
+}
+
+@media only screen and (max-width:999px) { 
+    /*Viewport scale the keyboard fontsize to fit the keys*/
+    .keyboard > button > span {
+        font-size:1.55vw;
     }
 }

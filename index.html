@@ -12,35 +12,43 @@
     </head>
     <body>
 
-        <img id="stopImage" src="public/oops.jpg" alt="An image advising the user that the website needs to be greater than 599 px to be displayed"/>
-        <p id="stopMessage">This website requires at least 600px screen width.</p>
+        <div id="StopContainer">
+            <!-- Only visible if less than 600px-->
+            <img id="stopImage" src="public/oops.jpg" alt="An image advising the user that the website needs to be greater than 599 px to be displayed"/>
+            <p id="stopMessage">This website requires at least 600px screen width.</p>
+        </div>
 
         <div id="displayPiano">
-            <div class="box container">
-                <div class="item header">
+            <!-- Only visible if greater than 599px -->
+            <div class="container">
+                <!--The Header bar, containing buttons and dropdown menu -->
+                <div class="header">
+                    <div id="headerItem1">
+                        <p>Tune:</p>
+                        <select name="tunes" id="tunes"> 
+                            <option>F&uuml;r Elise</option>
+                            <option>The Godfather</option>
+                            <option>Seven Nation Army</option> 
+                        </select>
+                        <button id="play">
+                            <img src="public/play.png" alt="Image of a play button"/>
+                        </button>
+                    </div>
 
-                    <!-- Dropdown menu -->
-                    <p>Tune:</p>
-                    <select name="tunes" id="tunes"> 
-                        <option>F&uuml;r Elise</option>
-                        <option>The Godfather</option>
-                        <option>Seven Nation Army</option> 
-                    </select>
-                    <button id="play">
-                        <img src="public/play.png" alt="Image of a play button"/>
-                    </button>
-                    <p>Record:</p>
-                    <button id="record">
-                        <img src="public/record.png" alt="Image of a record button (To start recording)"/>
-                    </button>
-                    <button id="pause" disabled>
-                        <img src="public/stop.png" alt="Image of a stop button (To stop recording)"/>
-                    </button>
+                    <div id="headerItem2">
+                        <p>Record:</p>
+                        <button id="record">
+                            <img src="public/record.png" alt="Image of a record button (To start recording)"/>
+                        </button>
+                        <button id="pause" disabled>
+                            <img src="public/stop.png" alt="Image of a stop button (To stop recording)"/>
+                        </button>
+                    </div>
                 </div>
 
-                <!-- Keyboard and it's keys -->
-                <!-- Nodes class denotes the black keys -->
                 <div class="keyboard">
+                    <!-- Keyboard and it's keys -->
+                    <!-- Nodes class is the black keys -->
                     <button class="key">
                         <span>C4</span>
                         <span>&#40;a&#41;</span>
